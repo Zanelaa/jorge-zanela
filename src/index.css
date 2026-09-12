@@ -1,0 +1,96 @@
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+
+  /* tokens usados pelos componentes do unlumen-ui (padrao shadcn) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--foreground);
+  --color-popover-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-ring: var(--ring);
+
+  /* accent unico do site: azul cobalto (paleta do PixelLiquidBg segue o mesmo tom) */
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-text: var(--brand-text);
+  --color-brand-soft: var(--brand-soft);
+
+  --animate-marquee: marquee 38s linear infinite;
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+:root {
+  --background: #fafafa;
+  --foreground: #18181b;
+  --border: #e4e4e7;
+  --secondary: #f1f1f3;
+  --accent: #ededf0;
+  --muted-foreground: #63636b;
+  --ring: #a1a1aa;
+
+  --brand: #2563eb;
+  --brand-foreground: #f8faff;
+  --brand-text: #1d4ed8;
+  --brand-soft: #e9f0fe;
+}
+
+.dark {
+  --background: #0b0b0d;
+  --foreground: #f4f4f5;
+  --border: #27272a;
+  --secondary: #19191c;
+  --accent: #222226;
+  --muted-foreground: #a1a1aa;
+  --ring: #52525b;
+
+  --brand: #3b74f6;
+  --brand-foreground: #f8faff;
+  --brand-text: #7aa4ff;
+  --brand-soft: #101c3d;
+
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--brand);
+  color: var(--brand-foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
+  }
+}

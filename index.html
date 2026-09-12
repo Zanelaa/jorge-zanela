@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jorge Zanela | Sites, IA e automação em Joinville</title>
+    <meta
+      name="description"
+      content="Landing pages, agentes de IA no WhatsApp e automações para negócios de Joinville venderem mais sem aumentar a equipe."
+    />
+    <meta property="og:title" content="Jorge Zanela | Sites, IA e automação em Joinville" />
+    <meta
+      property="og:description"
+      content="Landing pages, agentes de IA no WhatsApp e automações para negócios locais."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="theme-color" content="#0b0b0d" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      // aplica o tema antes do primeiro paint pra nao piscar
+      (function () {
+        try {
+          var salvo = localStorage.getItem("tema");
+          var escuro = salvo ? salvo === "escuro" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (escuro) document.documentElement.classList.add("dark");
+        } catch (e) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
